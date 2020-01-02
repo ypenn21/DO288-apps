@@ -6,6 +6,7 @@ LABEL "io.openshift.s2i.build.source-location"="go-hello/src" \
 USER root
 # Copying in source code
 COPY upload/src /tmp/src
+COPY .s2i/bin/run /usr/libexec/s2i/run
 # Change file ownership to the assemble user. Builder image must support chown command.
 RUN chown -R 1001:0 /tmp/src
 RUN mkdir /.cache && mkdir /.cache/go-build
